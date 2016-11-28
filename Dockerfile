@@ -1,13 +1,14 @@
 # Pull base image
-FROM debian:latest
-#FROM docker pull resin/rpi-raspbian
+#FROM debian:latest
+FROM resin/rpi-raspbian
 
 MAINTAINER Michael Mäder <mike@moik.org>
 
 
 # install plugin dependencies
 RUN set -ex \
-    && apt-get update && apt-get upgrade -y --no-install-recommends
+    && apt-get update && apt-get upgrade -y --no-install-recommends apt-utils
+
 RUN set -ex \
     &&apt-get install -y --no-install-recommends \
         ca-certificates \
